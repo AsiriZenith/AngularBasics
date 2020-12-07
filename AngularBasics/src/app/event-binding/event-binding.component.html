@@ -1,0 +1,9 @@
+<h3 *ngIf="boolValue">Welcome {{name}}!</h3>
+
+<br>
+<button (click)="onClick()" (mouseover)="buttonMouseOver('SEnith')">Click Me!</button>
+<br>
+<input #myInput type="text">
+<br>
+<button (click)="logMassage(myInput.value)">Log</button>
+<h3 *ngIf="boolValue">Have a nice day {{name}}!</h3>
