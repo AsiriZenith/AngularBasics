@@ -1,0 +1,18 @@
+<p>users works!</p>
+
+<div>{{allowNewUser}}</div>
+
+<br>
+<div class="my-2 ui-g">
+    <label for="">User Name</label>
+    <input type="text" class="form-control"  [(ngModel)]="userName" />
+</div>
+<button class="btn btn-primary" [disabled]="!allowNewUser" (click)="changeUserCreatedStatus()">Add User</button>
+<div *ngIf="statusValue; else noUser">{{userCreatedStatus}}</div>
+<ng-template #noUser>
+    <div>No user is created {{userName}}</div>
+</ng-template>
+<div>{{userName}}</div>
+<div>{{userCreatedStatus}}</div>
+
+<div [ngStyle]="{'background-color' : getColor()}">Now user is {{userStatus}}</div>
