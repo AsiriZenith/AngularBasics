@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class UsersComponent implements OnInit {
 
   allowNewUser: boolean = false;
-  userCreatedStatus: string = "No user Created!!";
   statusValue: boolean = false;
   userName: string = "TypeScript";
   userStatus: string;
+  users = ['user1','user2'];
 
   constructor() {
     setTimeout(() => {
@@ -24,18 +24,17 @@ export class UsersComponent implements OnInit {
   }
 
   changeUserCreatedStatus() {
-    this.userCreatedStatus = "User is Created!!";
     this.statusValue = true;
+    this.users.push(this.userName)
   }
 
   onUpdateuser(event) {
     this.userName = event.target.value;
-    console.log(this.userName)
   }
 
   getColor() {
     if (this.userStatus === 'online') {
-      return 'green'
+      return 'yellow'
     }
     else if (this.userStatus === 'offline') {
       return 'red'
