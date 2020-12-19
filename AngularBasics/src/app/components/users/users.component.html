@@ -19,8 +19,9 @@
         </ng-template>
         <div>{{userName}}</div>
 
-        <div [ngStyle]="{'background-color' : getColor()}" [ngClass]="{offline: userStatus==='offline'}">Now user is
+        <div [ngStyle]="{'background-color' : getColor()}" [ngClass]="{offline: userStatus==='offline'}">Now {{user}} is
             {{userStatus}}</div>
+        <div *ngFor="let user of users">{{user}}</div>
     </div>
     <div class="col-md-2">
 

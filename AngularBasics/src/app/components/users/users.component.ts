@@ -25,7 +25,7 @@ export class UsersComponent implements OnInit {
 
   changeUserCreatedStatus() {
     this.statusValue = true;
-    this.users.push(this.userName)
+    this.users.push(this.userName);
   }
 
   onUpdateuser(event) {
