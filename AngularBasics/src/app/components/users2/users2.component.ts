@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Users2Component implements OnInit {
 
-  userName: string;
   usersList = [];
 
   constructor() { }
@@ -15,8 +14,8 @@ export class Users2Component implements OnInit {
   ngOnInit(): void {
   }
 
-  onUserAdded() {
-    this.usersList.push(this.userName)
+  onUserAdded(event: string) {
+    this.usersList.push(event);
   }
 
 }

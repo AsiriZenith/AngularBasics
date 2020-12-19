@@ -7,13 +7,15 @@ import { UsersComponent } from './components/users/users.component';
 import { FormsModule } from '@angular/forms';
 import { UserComponent } from './components/user/user/user.component';
 import { Users2Component } from './components/users2/users2.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     UserComponent,
-    Users2Component
+    Users2Component,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
