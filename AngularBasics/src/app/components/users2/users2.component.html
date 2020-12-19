@@ -1,0 +1,14 @@
+<p>users2 works!</p>
+
+<div class="form-group">
+    <h3>Add User</h3>
+    <label for="">User Name: </label>
+    <input type="text" class="form-control" [(ngModel)]="userName">
+    <div class="mt-2">
+        <button class="btn btn-primary" (click)="onUserAdded()">Add User</button>
+    </div>
+</div>
+<div class="mt-3">
+    <h3>Users List</h3>
+    <app-user *ngFor="let user of usersList" [username]="user"></app-user>
+</div>

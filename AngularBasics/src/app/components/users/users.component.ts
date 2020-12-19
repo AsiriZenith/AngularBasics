@@ -11,7 +11,7 @@ export class UsersComponent implements OnInit {
   statusValue: boolean = false;
   userName: string = "TypeScript";
   userStatus: string;
-  users = ['user1','user2'];
+  users = [];
 
   constructor() {
     setTimeout(() => {
