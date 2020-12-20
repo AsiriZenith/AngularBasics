@@ -2,9 +2,14 @@
 
 <div class="form-group">
     <h3>Add User</h3>
-    <label for="">User Name: </label>
-    <input type="text" class="form-control" [(ngModel)]="userName">
+    <label for="">User Name : </label>
+    <input type="text" class="form-control" #inputValue >
     <div class="mt-2">
-        <button class="btn btn-primary" (click)="onuserAdded()">Add User</button>
+        <button class="btn btn-primary" (click)="onuserAddedUn(inputValue)">Add Username</button>
+    </div>
+    <label for="">Password : </label>
+    <input type="text" class="form-control" #inputPwd >
+    <div class="mt-2">
+        <button class="btn btn-primary" (click)="onuserAddedPwd()">Add Password</button>
     </div>
 </div>
