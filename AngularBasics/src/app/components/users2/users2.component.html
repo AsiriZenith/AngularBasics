@@ -4,5 +4,8 @@
 
 <div class="mt-3">
     <h3>Users List</h3>
-    <app-user *ngFor="let user of usersList" [username]="user"></app-user>
+    <button class="btn btn-primary" (click)="onNameChanged()">Change Name</button>
+    <app-user *ngFor="let user of usersList" [username]="user" [name]="name">
+        <p>User Name: {{user}}</p>
+    </app-user>
 </div>

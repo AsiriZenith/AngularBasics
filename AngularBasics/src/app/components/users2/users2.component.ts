@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class Users2Component implements OnInit {
 
   usersList = [];
+  name = "Asiri Senith";
 
   constructor() { }
 
@@ -16,6 +17,10 @@ export class Users2Component implements OnInit {
 
   onUserAdded(event: string) {
     this.usersList.push(event);
+  }
+
+  onNameChanged(){
+    this.name="Senith";
   }
 
 }
