@@ -1,7 +1,7 @@
 import { Directive, ElementRef, OnInit } from '@angular/core';
 
 @Directive({
-    selector: 'appHeighlightText',
+    selector: '[appHeighlightText]',
 })
 export class heighlightTextDirective implements OnInit {
     constructor(private element: ElementRef) {

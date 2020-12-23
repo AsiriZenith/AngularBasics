@@ -9,6 +9,7 @@ import { UserComponent } from './components/user/user/user.component';
 import { Users2Component } from './components/users2/users2.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { heighlightTextDirective } from './directives/heighlightText.directive';
+import { RenderHighlightDirective } from './directives/render-highlight.directive';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { heighlightTextDirective } from './directives/heighlightText.directive';
     UserComponent,
     Users2Component,
     AddUserComponent,
-    heighlightTextDirective
+    heighlightTextDirective,
+    RenderHighlightDirective
   ],
   imports: [
     BrowserModule,
