@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { UserComponent } from './components/user/user/user.component';
 import { Users2Component } from './components/users2/users2.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
+import { heighlightTextDirective } from './directives/heighlightText.directive';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AddUserComponent } from './components/add-user/add-user.component';
     UsersComponent,
     UserComponent,
     Users2Component,
-    AddUserComponent
+    AddUserComponent,
+    heighlightTextDirective
   ],
   imports: [
     BrowserModule,
