@@ -6,6 +6,6 @@
     <h3>Users List</h3>
     <button class="btn btn-primary" (click)="onNameChanged()">Change Name</button>
     <app-user *ngFor="let user of usersList" [username]="user" [name]="name">
-        <p>User Name: {{user}}</p>
+        <p #userParagraph>User Name: {{user}}</p>
     </app-user>
 </div>
