@@ -1,4 +1,4 @@
-import { Directive, ElementRef, OnInit } from '@angular/core';
+import { Directive, ElementRef, HostListener, OnInit } from '@angular/core';
 
 @Directive({
     selector: '[appHeighlightText]',
@@ -8,6 +8,14 @@ export class heighlightTextDirective implements OnInit {
 
     }
     ngOnInit(): void {
+        (<HTMLElement>this.element.nativeElement).style.backgroundColor = 'red';
+    }
+
+    @HostListener('mouseenter') onmouseenter(event: Event) {
+        (<HTMLElement>this.element.nativeElement).style.backgroundColor = 'green';
+    }
+
+    @HostListener('mouseleave') onmouseleave(event: Event) {
         (<HTMLElement>this.element.nativeElement).style.backgroundColor = 'red';
     }
 }
