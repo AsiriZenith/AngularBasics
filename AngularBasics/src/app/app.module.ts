@@ -10,6 +10,7 @@ import { Users2Component } from './components/users2/users2.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { heighlightTextDirective } from './directives/heighlightText.directive';
 import { RenderHighlightDirective } from './directives/render-highlight.directive';
+import { AlternateIfDirective } from './directives/alternateIf.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RenderHighlightDirective } from './directives/render-highlight.directiv
     Users2Component,
     AddUserComponent,
     heighlightTextDirective,
-    RenderHighlightDirective
+    RenderHighlightDirective,
+    AlternateIfDirective
   ],
   imports: [
     BrowserModule,

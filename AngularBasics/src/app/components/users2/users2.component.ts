@@ -9,7 +9,7 @@ export class Users2Component implements OnInit {
 
   usersList = [];
   name = "Asiri Senith";
-  isAvailable: boolean = false;
+  isAvailable: boolean = true;
 
   constructor() { }
 
@@ -20,8 +20,8 @@ export class Users2Component implements OnInit {
     this.usersList.push(event);
   }
 
-  onNameChanged(){
-    this.name="Senith";
+  onNameChanged() {
+    this.name = "Senith";
   }
 
 }

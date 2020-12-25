@@ -12,7 +12,12 @@
 
 <div>
     <div appHeighlightText>There is a Angular Directive</div>
-    <div appRenderHighlight [defaultColor]="'black'" [highlightColor]="'orange'">There is an Another Angular Directive</div>
+    <div appRenderHighlight [defaultColor]="'black'" [highlightColor]="'orange'">There is an Another Angular Directive
+    </div>
+</div>
+<br>
+<div>
+    <button class="btn btn-warning" (click)="isAvailable= !isAvailable">Toggle</button>
 </div>
 
 <div *ngIf="isAvailable">Show that statement when isAvailable is true</div>
@@ -20,3 +25,7 @@
 <ng-template [ngIf]="isAvailable">
     Show that statement when isAvailable is true
 </ng-template>
+
+<div *appAlternateIf="isAvailable">
+    This condition enable with custom directive
+</div>
