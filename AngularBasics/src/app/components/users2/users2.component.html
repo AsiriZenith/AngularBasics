@@ -12,5 +12,11 @@
 
 <div>
     <div appHeighlightText>There is a Angular Directive</div>
-    <div appRenderHighlight>There is an Another Angular Directive</div>
+    <div appRenderHighlight [defaultColor]="'black'" [highlightColor]="'orange'">There is an Another Angular Directive</div>
 </div>
+
+<div *ngIf="isAvailable">Show that statement when isAvailable is true</div>
+
+<ng-template [ngIf]="isAvailable">
+    Show that statement when isAvailable is true
+</ng-template>

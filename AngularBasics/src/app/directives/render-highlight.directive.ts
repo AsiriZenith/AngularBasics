@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, OnInit, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, HostBinding, HostListener, Input, OnInit, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appRenderHighlight]'
@@ -6,22 +6,26 @@ import { Directive, ElementRef, HostListener, OnInit, Renderer2 } from '@angular
 
 export class RenderHighlightDirective implements OnInit {
 
+  @Input() defaultColor = 'red';
+  @Input() highlightColor = 'yellow';
+  @HostBinding('style.backgroundColor') color: string;
+
   constructor(private element: ElementRef, private renderer: Renderer2) { }
 
   ngOnInit(): void {
-    this.renderer.setStyle(this.element.nativeElement, 'backgroundColor', 'green');
+    this.color = 'red';
   }
 
   @HostListener('mouseenter') onmouseover(event: Event) {
-    this.renderer.setStyle(this.element.nativeElement, 'backgroundColor', 'red');
+    this.color = this.highlightColor;
   }
 
   @HostListener('mouseleave') onmouseleave(event: Event) {
-    this.renderer.setStyle(this.element.nativeElement, 'backgroundColor', 'green');
+    this.color = this.defaultColor;
   }
 
   @HostListener('click') onclick(event: Event) {
-    this.renderer.setStyle(this.element.nativeElement, 'backgroundColor', 'yellow');
+    this.color = 'yellow';
   }
 
 }
