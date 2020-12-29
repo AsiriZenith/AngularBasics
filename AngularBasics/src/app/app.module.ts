@@ -11,6 +11,9 @@ import { AddUserComponent } from './components/add-user/add-user.component';
 import { heighlightTextDirective } from './directives/heighlightText.directive';
 import { RenderHighlightDirective } from './directives/render-highlight.directive';
 import { AlternateIfDirective } from './directives/alternateIf.directive';
+import { HomeComponent } from './components/home/home.component';
+import { PersonComponent } from './components/person/person.component';
+import { CategoriesComponent } from './components/categories/categories.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { AlternateIfDirective } from './directives/alternateIf.directive';
     AddUserComponent,
     heighlightTextDirective,
     RenderHighlightDirective,
-    AlternateIfDirective
+    AlternateIfDirective,
+    HomeComponent,
+    PersonComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
