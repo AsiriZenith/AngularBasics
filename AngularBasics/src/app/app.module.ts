@@ -14,6 +14,13 @@ import { AlternateIfDirective } from './directives/alternateIf.directive';
 import { HomeComponent } from './components/home/home.component';
 import { PersonComponent } from './components/person/person.component';
 import { CategoriesComponent } from './components/categories/categories.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'users', component: PersonComponent },
+  { path: 'categories', component: CategoriesComponent }
+];
 
 @NgModule({
   declarations: [
@@ -32,7 +39,8 @@ import { CategoriesComponent } from './components/categories/categories.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
