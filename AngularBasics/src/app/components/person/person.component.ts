@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-person',
@@ -8,13 +8,19 @@ import { Router } from '@angular/router';
 })
 export class PersonComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  user: { id: string; name: string };
+
+  constructor(private router: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.user = {
+      id: this.router.snapshot.params['id'],
+      name: this.router.snapshot.params['name']
+    }
   }
 
-  onCategoriesLink() {
-    this.router.navigate(['/categories']);
-  }
+  // onCategoriesLink() {
+  //   this.router.navigate(['/categories']);
+  // }
 
 }
