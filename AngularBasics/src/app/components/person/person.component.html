@@ -4,3 +4,11 @@
     <div>User with id is {{user.id}}</div>
     <div>User with name is {{user.name}}</div>
 </div>
+
+<div>
+    <a [routerLink]="['/users',1,'Asiri']" [queryParams]="{page:1,search:'Asiri'}" [fragment]="'load'">Get details</a>
+</div>
+
+<div>
+    <button (click)="getDetails()">get details</button>
+</div>
