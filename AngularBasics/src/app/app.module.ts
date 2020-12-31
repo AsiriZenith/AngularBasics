@@ -18,8 +18,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'users', component: PersonComponent },
-  { path: 'users/:id/:name', component: PersonComponent },
+  { path: 'users', component: PersonComponent, children: [{ path: ':id/:name', component: PersonComponent }] },
   { path: 'categories', component: CategoriesComponent }
 ];
 

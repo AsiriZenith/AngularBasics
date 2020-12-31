@@ -1,14 +1,21 @@
-<p>person works!</p>
 
 <div>
     <div>User with id is {{user.id}}</div>
-    <div>User with name is {{user.name}}</div>
+    <div>User with Name is {{user.name}}</div>
 </div>
 
-<div>
-    <a [routerLink]="['/users',1,'Asiri']" [queryParams]="{page:1,search:'Asiri'}" [fragment]="'load'">Get details</a>
-</div>
+<ul class="nav flex-column">
+    <li class="nav-item">
+        <a [routerLink]="['/users',1,'A']" class="nav-link">Get A Details</a>
+    </li>
+    <li class="nav-item">
+        <a [routerLink]="['/users',2,'B']" class="nav-link">Get B Details</a>
+    </li>
+    <li class="nav-item">
+        <a [routerLink]="['/users',3,'C']" class="nav-link">Get C Details</a>
+    </li>
+</ul>
 
 <div>
-    <button (click)="getDetails()">get details</button>
+    <router-outlet></router-outlet>
 </div>

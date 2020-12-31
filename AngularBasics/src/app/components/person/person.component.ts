@@ -23,6 +23,16 @@ export class PersonComponent implements OnInit {
         name: data['name']
       }
     });
+    // console.log(this.route.snapshot.queryParams);
+    // console.log(this.route.snapshot.fragment);
+
+    this.route.queryParams.subscribe(data => {
+      console.log(data);
+    })
+
+    this.route.fragment.subscribe(data => {
+      console.log(data);
+    })
   }
 
   getDetails() {
