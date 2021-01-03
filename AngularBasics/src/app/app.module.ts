@@ -15,10 +15,15 @@ import { HomeComponent } from './components/home/home.component';
 import { PersonComponent } from './components/person/person.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { RouterModule, Routes } from '@angular/router';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'users', component: PersonComponent, children: [{ path: ':id/:name', component: PersonComponent }] },
+  {
+    path: 'users', component: PersonComponent, children: [
+      { path: ':id/:name', component: PersonComponent },
+      { path: ':id/:name/edit', component: EditUserComponent }]
+  },
   { path: 'categories', component: CategoriesComponent }
 ];
 
@@ -34,7 +39,8 @@ const routes: Routes = [
     AlternateIfDirective,
     HomeComponent,
     PersonComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,

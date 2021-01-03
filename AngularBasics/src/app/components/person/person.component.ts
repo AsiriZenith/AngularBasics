@@ -43,4 +43,9 @@ export class PersonComponent implements OnInit {
       });
   }
 
+  onUserEdit() {
+    this.router.navigate(['/users', this.user.id, this.user.name, 'edit'], {
+      queryParamsHandling: 'preserve'
+    });
+  }
 }
