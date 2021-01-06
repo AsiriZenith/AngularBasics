@@ -18,18 +18,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
-const routes: Routes = [
-  { path: '', component: HomeComponent },
-  {
-    path: 'users', component: PersonComponent, children: [
-      { path: ':id/:name', component: PersonComponent },
-      { path: ':id/:name/edit', component: EditUserComponent }]
-  },
-  { path: 'categories', component: CategoriesComponent },
-  { path: 'page-not-found', component: PageNotFoundComponent },
-  { path: '**', redirectTo: 'page-not-found' }
-];
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,8 +37,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    RouterModule.forRoot(routes)
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
