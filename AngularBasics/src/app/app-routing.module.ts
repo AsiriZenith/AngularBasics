@@ -6,13 +6,16 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { PersonComponent } from './components/person/person.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
-
+import { AuthGuardService } from './services/auth.guard.service';
 
 // const routes: Routes = [];
 const routes: Routes = [
   { path: '', component: HomeComponent },
   {
-    path: 'users', component: PersonComponent, children: [
+    path: 'users',
+    component: PersonComponent,
+    canActivate: [AuthGuardService],
+    children: [
       { path: ':id/:name', component: PersonComponent },
       { path: ':id/:name/edit', component: EditUserComponent }]
   },

@@ -14,9 +14,10 @@ import { AlternateIfDirective } from './directives/alternateIf.directive';
 import { HomeComponent } from './components/home/home.component';
 import { PersonComponent } from './components/person/person.component';
 import { CategoriesComponent } from './components/categories/categories.component';
-import { RouterModule, Routes } from '@angular/router';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth.guard.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,10 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
