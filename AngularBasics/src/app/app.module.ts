@@ -16,6 +16,7 @@ import { PersonComponent } from './components/person/person.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { RouterModule, Routes } from '@angular/router';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -24,7 +25,9 @@ const routes: Routes = [
       { path: ':id/:name', component: PersonComponent },
       { path: ':id/:name/edit', component: EditUserComponent }]
   },
-  { path: 'categories', component: CategoriesComponent }
+  { path: 'categories', component: CategoriesComponent },
+  { path: 'page-not-found', component: PageNotFoundComponent },
+  { path: '**', redirectTo: 'page-not-found' }
 ];
 
 @NgModule({
@@ -40,7 +43,8 @@ const routes: Routes = [
     HomeComponent,
     PersonComponent,
     CategoriesComponent,
-    EditUserComponent
+    EditUserComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
