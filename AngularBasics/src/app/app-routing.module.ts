@@ -11,14 +11,14 @@ import { DeactivateGuardService } from './services/deactivate.guard.service';
 
 // const routes: Routes = [];
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, data: { page: 1, search: 'Asenith' } },
   {
     path: 'users',
     component: PersonComponent,
     canActivateChild: [AuthGuardService],
     children: [
       { path: ':id/:name', component: PersonComponent },
-      { path: ':id/:name/edit', component: EditUserComponent, canDeactivate:[DeactivateGuardService] }]
+      { path: ':id/:name/edit', component: EditUserComponent, canDeactivate: [DeactivateGuardService] }]
   },
   { path: 'categories', component: CategoriesComponent },
   { path: 'page-not-found', component: PageNotFoundComponent },
