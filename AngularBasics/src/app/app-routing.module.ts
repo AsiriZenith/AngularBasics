@@ -8,6 +8,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { AuthGuardService } from './services/auth.guard.service';
 import { DeactivateGuardService } from './services/deactivate.guard.service';
+import { UserResolveService } from './services/user.resolve.service';
 
 // const routes: Routes = [];
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
     path: 'users',
     component: PersonComponent,
     canActivateChild: [AuthGuardService],
+    resolve: { user: UserResolveService },
     children: [
       { path: ':id/:name', component: PersonComponent },
       { path: ':id/:name/edit', component: EditUserComponent, canDeactivate: [DeactivateGuardService] }]
