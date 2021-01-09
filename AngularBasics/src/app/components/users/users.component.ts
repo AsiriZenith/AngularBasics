@@ -41,4 +41,7 @@ export class UsersComponent implements OnInit {
     }
   }
 
+  onUserAdded(){
+    
+  }
 }

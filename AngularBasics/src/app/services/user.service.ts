@@ -1,5 +1,9 @@
+import { EventEmitter } from "@angular/core";
 
 export class UserService{
+
+    userAddedEvent = new EventEmitter<boolean>();
+
     getUser(id:string){
         if (id==='1') {
             return{
@@ -12,5 +16,9 @@ export class UserService{
                 name:'Senith'
             }
         }
+    }
+
+    addUser(){
+        this.userAddedEvent.emit(true);
     }
 }

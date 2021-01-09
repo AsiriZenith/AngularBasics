@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-person',
@@ -10,7 +11,7 @@ export class PersonComponent implements OnInit {
 
   user: { id: string; name: string };
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router,private userService: UserService) { }
 
   ngOnInit(): void {
     this.user = {
@@ -27,10 +28,12 @@ export class PersonComponent implements OnInit {
     // console.log(this.route.snapshot.fragment);
 
     this.route.queryParams.subscribe(data => {
-      console.log(data);
+      this.user.id = data.page;
+      this.user.name = data.search;
     })
 
     this.route.fragment.subscribe(data => {
+      console.log("fragmant");
       console.log(data);
     })
   }
@@ -43,9 +46,13 @@ export class PersonComponent implements OnInit {
       });
   }
 
-  onUserEdit() {
-    this.router.navigate(['/users', this.user.id, this.user.name, 'edit'], {
-      queryParamsHandling: 'preserve'
-    });
+  // onUserEdit() {
+  //   this.router.navigate(['/users', this.user.id, this.user.name, 'edit'], {
+  //     queryParamsHandling: 'preserve'
+  //   });
+  // }
+
+  onUserEdit(){
+    this.userService.addUser();
   }
 }
