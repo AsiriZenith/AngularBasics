@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="" (ngSubmit)="onFormSubmit(f)" #f="ngForm">
+                <div class="form-group">
+                    <label for="username">User Name</label>
+                    <input type="text" class="form-control" id="username" name="username" ngModel />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" id="email" name="email" ngModel />
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select name="gender" id="gender" class="form-control" name="gender" ngModel >
+                        <option value="male">Male</option>
+                        <option value="femail">Femail</option>
+                    </select>
+                </div>
+                <div class="md-2">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

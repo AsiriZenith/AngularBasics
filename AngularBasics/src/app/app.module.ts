@@ -21,6 +21,7 @@ import { AuthGuardService } from './services/auth.guard.service';
 import { DeactivateGuardService } from './services/deactivate.guard.service';
 import { UserResolveService } from './services/user.resolve.service';
 import { UserService } from './services/user.service';
+import { TemplateFormComponent } from './components/template-form/template-form.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { UserService } from './services/user.service';
     PersonComponent,
     CategoriesComponent,
     EditUserComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    TemplateFormComponent
   ],
   imports: [
     BrowserModule,

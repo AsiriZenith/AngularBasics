@@ -1,24 +1,28 @@
-import { EventEmitter } from "@angular/core";
+import { Subject } from "rxjs";
 
-export class UserService{
+export class UserService {
 
-    userAddedEvent = new EventEmitter<boolean>();
+    private userAddedEvent = new Subject<boolean>();
 
-    getUser(id:string){
-        if (id==='1') {
-            return{
-                id:'1',
-                name:'Asiri'
+    getUser(id: string) {
+        if (id === '1') {
+            return {
+                id: '1',
+                name: 'Asiri'
             }
-        }else{
-            return{
-                id:'2',
-                name:'Senith'
+        } else {
+            return {
+                id: '2',
+                name: 'Senith'
             }
         }
     }
 
-    addUser(){
-        this.userAddedEvent.emit(true);
+    addUser() {
+        this.userAddedEvent.next(true);
+    }
+
+    userAddedEventStatue() {
+        return this.userAddedEvent;
     }
 }

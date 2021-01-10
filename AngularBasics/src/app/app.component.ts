@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 
@@ -7,14 +8,20 @@ import { UserService } from './services/user.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
+
   title = 'AngularBasics';
   userAdded: boolean = false;
+  userAddedSubscription: Subscription;
 
   constructor(private authservice: AuthService, private userService: UserService) { }
 
+  ngOnDestroy(): void {
+    this.userAddedSubscription.unsubscribe();
+  }
+
   ngOnInit(): void {
-    this.userService.userAddedEvent.subscribe(data => {
+    this.userAddedSubscription = this.userService.userAddedEventStatue().subscribe(data => {
       this.userAdded = data;
     })
   }

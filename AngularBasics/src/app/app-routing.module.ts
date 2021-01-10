@@ -9,6 +9,7 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { AuthGuardService } from './services/auth.guard.service';
 import { DeactivateGuardService } from './services/deactivate.guard.service';
 import { UserResolveService } from './services/user.resolve.service';
+import { TemplateFormComponent } from './components/template-form/template-form.component';
 
 // const routes: Routes = [];
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
       { path: ':id/:name/edit', component: EditUserComponent, canDeactivate: [DeactivateGuardService] }]
   },
   { path: 'categories', component: CategoriesComponent },
+  { path: 'templateForm', component: TemplateFormComponent },
   { path: 'page-not-found', component: PageNotFoundComponent },
   { path: '**', redirectTo: 'page-not-found' }
 ];
