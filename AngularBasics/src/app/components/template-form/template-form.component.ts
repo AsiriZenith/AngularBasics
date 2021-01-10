@@ -22,4 +22,13 @@ export class TemplateFormComponent implements OnInit {
     console.log(this.SingUpForm);
   }
 
+  fillValues(){
+    this.SingUpForm.form.patchValue({
+      userData:{
+        email:'asirisenith@gmail.com',
+        username:'Asiri'
+      }
+    })
+  }
+
 }
