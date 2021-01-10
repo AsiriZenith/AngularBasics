@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserComponent } from './components/user/user/user.component';
 import { Users2Component } from './components/users2/users2.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
@@ -22,6 +22,7 @@ import { DeactivateGuardService } from './services/deactivate.guard.service';
 import { UserResolveService } from './services/user.resolve.service';
 import { UserService } from './services/user.service';
 import { TemplateFormComponent } from './components/template-form/template-form.component';
+import { ReactiveFormsComponent } from './components/reactive-forms/reactive-forms.component';
 
 @NgModule({
   declarations: [
@@ -38,12 +39,14 @@ import { TemplateFormComponent } from './components/template-form/template-form.
     CategoriesComponent,
     EditUserComponent,
     PageNotFoundComponent,
-    TemplateFormComponent
+    TemplateFormComponent,
+    ReactiveFormsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     AuthService,
