@@ -9,6 +9,8 @@ import { NgForm } from '@angular/forms';
 export class TemplateFormComponent implements OnInit {
 
   @ViewChild('f') SingUpForm : NgForm;
+  gender: string = "male";
+  about: string="";
 
   constructor() { }
 

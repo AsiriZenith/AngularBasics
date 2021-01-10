@@ -2,22 +2,31 @@
     <div class="row">
         <div class="col-md-12">
             <form action="" (ngSubmit)="onFormSubmit()" #f="ngForm">
-                <div class="form-group">
-                    <label for="username">User Name</label>
-                    <input type="text" class="form-control" id="username" name="username" ngModel required />
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="text" class="form-control" id="email" name="email" ngModel required email #email="ngModel"/>
-                    <span class="help-text" *ngIf="!email.valid && email.touched">Please enter valid email</span>
+                <div *ngIf="!userData.valid && userData.touched">User data is invalid</div>
+                <div ngModelGroup="userData" #userData="ngModelGroup">
+                    <div class="form-group">
+                        <label for="username">User Name</label>
+                        <input type="text" class="form-control" id="username" name="username" ngModel required />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" name="email" ngModel required email
+                            #email="ngModel" />
+                        <span class="help-text" *ngIf="!email.valid && email.touched">Please enter valid email</span>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="gender">Gender</label>
-                    <select name="gender" id="gender" class="form-control" name="gender" ngModel >
+                    <select name="gender" id="gender" class="form-control" name="gender" [ngModel]="gender">
                         <option value="male">Male</option>
                         <option value="femail">Femail</option>
                     </select>
                 </div>
+                <div class="form-group">
+                    <label for="">About</label>
+                    <textarea class="form-control" name="about" id="" cols="30" rows="2" [(ngModel)]="about"></textarea>
+                </div>
+                <div>{{about}}</div>
                 <div class="md-2">
                     <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
                 </div>
