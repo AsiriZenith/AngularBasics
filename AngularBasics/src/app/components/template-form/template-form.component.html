@@ -33,5 +33,12 @@
                 </div>
             </form>
         </div>
+        <div *ngIf="submitted">
+            <h3>Your Data</h3>
+            <div>UserName : {{user.username}}</div>
+            <div>Email : {{user.email}}</div>
+            <div>Gender : {{user.gender}}</div>
+            <div>About : {{user.about}}</div>
+        </div>
     </div>
 </div>
