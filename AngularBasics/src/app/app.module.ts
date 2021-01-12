@@ -23,6 +23,7 @@ import { UserResolveService } from './services/user.resolve.service';
 import { UserService } from './services/user.service';
 import { TemplateFormComponent } from './components/template-form/template-form.component';
 import { ReactiveFormsComponent } from './components/reactive-forms/reactive-forms.component';
+import { FilterPipesComponent } from './components/filter-pipes/filter-pipes.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ReactiveFormsComponent } from './components/reactive-forms/reactive-for
     EditUserComponent,
     PageNotFoundComponent,
     TemplateFormComponent,
-    ReactiveFormsComponent
+    ReactiveFormsComponent,
+    FilterPipesComponent
   ],
   imports: [
     BrowserModule,
