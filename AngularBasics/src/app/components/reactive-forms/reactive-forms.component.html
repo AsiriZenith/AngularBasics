@@ -7,14 +7,16 @@
                         <label for="">UserName</label>
                         <input type="text" class="form-control" formControlName="username">
                         <span class="help-block"
-                            *ngIf="!signUpForm.get('userData.username').valid && signUpForm.get('userData.username').touched">Please enter
+                            *ngIf="!signUpForm.get('userData.username').valid && signUpForm.get('userData.username').touched">Please
+                            enter
                             valid username</span>
                     </div>
                     <div class="form-group">
                         <label for="">Email</label>
                         <input type="text" class="form-control" formControlName="email">
                         <span class="help-block"
-                            *ngIf="!signUpForm.get('userData.email').valid && signUpForm.get('userData.email').touched">Please enter valid
+                            *ngIf="!signUpForm.get('userData.email').valid && signUpForm.get('userData.email').touched">Please
+                            enter valid
                             email</span>
                     </div>
                 </div>
@@ -22,6 +24,14 @@
                     <label for="">
                         <input type="radio" name="gender" id="" [value]="gender" formControlName="gender" />{{gender}}
                     </label>
+                </div>
+                <div formArrayName="hobbies">
+                    <div class="my-2">
+                        <button type="button" class="btn btn-sm btn-warning" (click)="onAddHobby()">Add Hobby</button>
+                    </div>
+                    <div class="form-group" *ngFor="let hobby of hobbyControls; let i = index">
+                        <input type="text" class="form-control" [formControlName]="i" />
+                    </div>
                 </div>
                 <div>
                     <button type="submit" class="btn btn-primary">Add</button>
