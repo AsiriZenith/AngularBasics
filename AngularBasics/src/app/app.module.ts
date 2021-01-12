@@ -24,6 +24,7 @@ import { UserService } from './services/user.service';
 import { TemplateFormComponent } from './components/template-form/template-form.component';
 import { ReactiveFormsComponent } from './components/reactive-forms/reactive-forms.component';
 import { FilterPipesComponent } from './components/filter-pipes/filter-pipes.component';
+import { ShortenPipe } from './Pipes/shorten.pipe';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { FilterPipesComponent } from './components/filter-pipes/filter-pipes.com
     PageNotFoundComponent,
     TemplateFormComponent,
     ReactiveFormsComponent,
-    FilterPipesComponent
+    FilterPipesComponent,
+    ShortenPipe
   ],
   imports: [
     BrowserModule,
