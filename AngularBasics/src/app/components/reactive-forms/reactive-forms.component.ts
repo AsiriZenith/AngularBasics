@@ -26,11 +26,23 @@ export class ReactiveFormsComponent implements OnInit {
       }),
       'gender': new FormControl('femail'),
       'hobbies': new FormArray([])
+    });
+    this.signUpForm.valueChanges.subscribe(value => {
+      console.log(value);
+    });
+    this.signUpForm.patchValue({
+      userData: {
+        // username:'Manjitha',
+        email: 'asd@gmail.com'
+      },
+      gender: 'male',
+      hobbies: []
     })
   }
 
   onSubmit() {
     console.log(this.signUpForm);
+    this.signUpForm.reset();
   }
 
   isRestrictedNames(control: FormControl): { [s: string]: boolean } {
