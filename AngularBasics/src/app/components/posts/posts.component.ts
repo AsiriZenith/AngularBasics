@@ -11,6 +11,7 @@ import { Post } from './posts.model'
 export class PostsComponent implements OnInit {
   postForm: FormGroup
   posts: Post[]
+  error: string
 
   constructor(private postservice: PostService) {}
 
@@ -23,21 +24,35 @@ export class PostsComponent implements OnInit {
   }
 
   getPost() {
-    this.postservice.fetchPost().subscribe((data) => {
-      this.posts = data
-      console.log('Inside the get post')
-    })
+    this.postservice.fetchPost().subscribe(
+      (data) => {
+        this.posts = data
+        console.log('Inside the get post')
+      },
+      (error) => {
+        console.log('error occured inside the get post')
+        this.error = error.message
+        console.log(error)
+      },
+    )
   }
 
   onCreatePost() {
     console.log(this.postForm.value)
     const postdata = this.postForm.value
-    this.postservice.createPost(postdata).subscribe((res) => {
-      console.log('Inside the create post')
-      console.log(res)
-      this.getPost()
-      this.postForm.reset()
-    })
+    this.postservice.createPost(postdata).subscribe(
+      (res) => {
+        console.log('Inside the create post')
+        console.log(res)
+        this.getPost()
+        this.postForm.reset()
+      },
+      (error) => {
+        console.log('Error occured inside create post')
+        this.error = error.message
+        console.log(error)
+      },
+    )
   }
 
   onClearPost(event: Event) {

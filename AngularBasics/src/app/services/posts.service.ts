@@ -1,4 +1,5 @@
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'
+import { serializeNodes } from '@angular/compiler/src/i18n/digest'
 import { Injectable } from '@angular/core'
 import { map } from 'rxjs/Operators'
 import { Post } from '../components/posts/posts.model'
@@ -8,9 +9,18 @@ export class PostService {
   constructor(private http: HttpClient) {}
 
   fetchPost() {
+    let searchParams = new HttpParams()
+    searchParams = searchParams.append('custom', 'Hi')
+    searchParams = searchParams.append('name', 'Asiri')
     return this.http
       .get<{ [key: string]: Post }>(
         'https://angularbasic-402cf-default-rtdb.firebaseio.com/posts.json',
+        {
+          headers: new HttpHeaders({
+            'custom-header': 'Asiri',
+          }),
+          params: searchParams,
+        },
       )
       .pipe(
         map((res) => {
