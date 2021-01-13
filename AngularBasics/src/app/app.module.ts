@@ -28,6 +28,7 @@ import { FilterPipesComponent } from './components/filter-pipes/filter-pipes.com
 import { ShortenPipe } from './Pipes/shorten.pipe'
 import { FilterPipe } from './Pipes/filter.pipe'
 import { PostsComponent } from './components/posts/posts.component'
+import { PostService } from './services/posts.service'
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { PostsComponent } from './components/posts/posts.component'
     DeactivateGuardService,
     UserService,
     UserResolveService,
+    PostService,
   ],
   bootstrap: [AppComponent],
 })
