@@ -22,10 +22,17 @@ export class PostService {
         }),
       )
   }
+
   createPost(postdata: Post) {
     return this.http.post<{ name: string }>(
       'https://angularbasic-402cf-default-rtdb.firebaseio.com/posts.json',
       postdata,
+    )
+  }
+
+  clearPost() {
+    return this.http.delete(
+      'https://angularbasic-402cf-default-rtdb.firebaseio.com/posts.json',
     )
   }
 }

@@ -25,6 +25,7 @@ export class PostsComponent implements OnInit {
   getPost() {
     this.postservice.fetchPost().subscribe((data) => {
       this.posts = data
+      console.log('Inside the get post')
     })
   }
 
@@ -32,7 +33,19 @@ export class PostsComponent implements OnInit {
     console.log(this.postForm.value)
     const postdata = this.postForm.value
     this.postservice.createPost(postdata).subscribe((res) => {
+      console.log('Inside the create post')
+      console.log(res)
       this.getPost()
+      this.postForm.reset()
     })
+  }
+
+  onClearPost(event: Event) {
+    event.preventDefault()
+    this.postservice.clearPost().subscribe((res) => {
+      console.log('Inside the clear post')
+      console.log(res)
+    })
+    this.getPost()
   }
 }
