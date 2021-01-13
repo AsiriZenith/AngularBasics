@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { rejects } from 'assert';
 
 @Component({
   selector: 'app-filter-pipes',
@@ -8,6 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class FilterPipesComponent implements OnInit {
 
   filterString: string = "";
+
+  appStatus = new Promise((resolve, rejects) => {
+    setTimeout(() => {
+      resolve('Users Data Resolved');
+    }, 3000);
+  })
 
   users = [{
     name: 'Asiri',
@@ -25,6 +32,13 @@ export class FilterPipesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onAddUser() {
+    this.users.push({
+      name: 'Sam',
+      joinedDate: new Date(19, 9, 2019)
+    })
   }
 
 }
