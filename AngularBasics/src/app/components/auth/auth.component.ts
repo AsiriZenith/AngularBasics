@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { FormControl, NgForm } from '@angular/forms'
+import { NgForm } from '@angular/forms'
 import { AuthService } from 'src/app/services/auth.service'
 
 @Component({
@@ -8,11 +8,15 @@ import { AuthService } from 'src/app/services/auth.service'
 })
 export class AuthComponent implements OnInit {
   isLogginMode: boolean = true
+  isLoading: boolean = true
+  error: string = null
 
   constructor(private authservice: AuthService) {}
 
   ngOnInit(): void {
-    //
+    setTimeout(() => {
+      this.isLoading = false
+    }, 3000)
   }
 
   onSwitchMode() {
@@ -23,17 +27,22 @@ export class AuthComponent implements OnInit {
     if (!authform.valid) {
       return
     }
+    this.isLoading = true
     if (this.isLogginMode) {
       //Perform loggin call
+      this.error = 'An error occured!!'
     } else {
       this.authservice
         .signUp(authform.value.email, authform.value.password)
         .subscribe(
           (res) => {
             console.log(res)
+            this.isLoading = false
           },
           (error) => {
             console.log(error)
+            this.isLoading = false
+            this.error = 'An error occured!!'
           },
         )
     }
