@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
@@ -29,6 +29,7 @@ import { ShortenPipe } from './Pipes/shorten.pipe'
 import { FilterPipe } from './Pipes/filter.pipe'
 import { PostsComponent } from './components/posts/posts.component'
 import { PostService } from './services/posts.service'
+import { AuthInterceptorService } from './services/auth.Interceptor.service'
 
 @NgModule({
   declarations: [
@@ -60,6 +61,11 @@ import { PostService } from './services/posts.service'
     HttpClientModule,
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
     AuthService,
     AuthGuardService,
     DeactivateGuardService,
