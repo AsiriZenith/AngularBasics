@@ -30,6 +30,7 @@ import { FilterPipe } from './Pipes/filter.pipe'
 import { PostsComponent } from './components/posts/posts.component'
 import { PostService } from './services/posts.service'
 import { AuthInterceptorService } from './services/auth.Interceptor.service'
+import { LogginInterceptorService } from './services/loggin.Interceptor.service'
 
 @NgModule({
   declarations: [
@@ -64,6 +65,11 @@ import { AuthInterceptorService } from './services/auth.Interceptor.service'
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LogginInterceptorService,
       multi: true,
     },
     AuthService,
