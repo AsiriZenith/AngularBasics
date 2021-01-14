@@ -31,6 +31,7 @@ import { PostsComponent } from './components/posts/posts.component'
 import { PostService } from './services/posts.service'
 import { AuthInterceptorService } from './services/auth.Interceptor.service'
 import { LogginInterceptorService } from './services/loggin.Interceptor.service'
+import { AuthComponent } from './components/auth/auth.component'
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { LogginInterceptorService } from './services/loggin.Interceptor.service'
     ShortenPipe,
     FilterPipe,
     PostsComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
