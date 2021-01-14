@@ -58,8 +58,8 @@ export class PostsComponent implements OnInit {
   onClearPost(event: Event) {
     event.preventDefault()
     this.postservice.clearPost().subscribe((res) => {
-      console.log('Inside the clear post')
-      console.log(res)
+      // console.log('Inside the clear post')
+      // console.log(res)
     })
     this.getPost()
   }

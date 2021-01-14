@@ -1,7 +1,12 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'
+import {
+  HttpClient,
+  HttpEventType,
+  HttpHeaders,
+  HttpParams,
+} from '@angular/common/http'
 import { serializeNodes } from '@angular/compiler/src/i18n/digest'
 import { Injectable } from '@angular/core'
-import { map } from 'rxjs/Operators'
+import { map, tap } from 'rxjs/Operators'
 import { Post } from '../components/posts/posts.model'
 
 @Injectable({ providedIn: 'root' })
@@ -37,12 +42,30 @@ export class PostService {
     return this.http.post<{ name: string }>(
       'https://angularbasic-402cf-default-rtdb.firebaseio.com/posts.json',
       postdata,
+      {
+        observe: 'response',
+      },
     )
   }
 
   clearPost() {
-    return this.http.delete(
-      'https://angularbasic-402cf-default-rtdb.firebaseio.com/posts.json',
-    )
+    return this.http
+      .delete(
+        'https://angularbasic-402cf-default-rtdb.firebaseio.com/posts.json',
+        {
+          observe: 'events',
+          responseType: 'text',
+        },
+      )
+      .pipe(
+        tap((res) => {
+          if (res.type === HttpEventType.Sent) {
+            console.log('Request sent')
+          }
+          if (res.type === HttpEventType.Response) {
+            console.log(res)
+          }
+        }),
+      )
   }
 }
