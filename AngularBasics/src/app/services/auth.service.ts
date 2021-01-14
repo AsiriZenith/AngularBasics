@@ -1,16 +1,29 @@
+import { HttpClient } from '@angular/common/http'
+import { Injectable } from '@angular/core'
+import { AuthResponseVM } from '../components/auth/auth.responsedata'
 
+@Injectable({ providedIn: 'root' })
 export class AuthService {
-    isLoggedIn: boolean = false;
+  isLoggedIn: boolean = false
 
-    login() {
-        this.isLoggedIn = true;
-    }
+  constructor(private http: HttpClient) {}
 
-    logOut() {
-        this.isLoggedIn = false;
-    }
+  signUp(email: string, password: string) {
+    return this.http.post<AuthResponseVM>(
+      `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBYa9Cu7wvSPPxvArRbjYN66Hz4bBs6_kM`,
+      { email, password, returnSecureToken: true },
+    )
+  }
 
-    IsAuthenticated(){
-        return this.isLoggedIn;
-    }
+  login() {
+    this.isLoggedIn = true
+  }
+
+  logOut() {
+    this.isLoggedIn = false
+  }
+
+  IsAuthenticated() {
+    return this.isLoggedIn
+  }
 }

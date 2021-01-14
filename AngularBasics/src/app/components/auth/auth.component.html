@@ -1,16 +1,27 @@
 <div class="row">
     <div class="col-md-12">
-        <form>
+        <form #authform="ngForm" (ngSubmit)="onFormSubmit(authform)">
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="text" class="form-control" />
+                <input name="email" type="text" class="form-control" ngModel required email #email="ngModel" />
+                <div class="help-text" *ngIf="email.touched && !email.valid">
+                    <div *ngIf="email.errors.required">Email is Required</div>
+                    <div *ngIf="email.errors.email">Invalid Email</div>
+                </div>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" />
+                <input name="password" type="password" class="form-control" ngModel required minlength="4"
+                    #password="ngModel" />
+                <div class="help-text" *ngIf="password.touched && !password.valid">
+                    <div *ngIf="password.errors.required">Password is Required</div>
+                    <div *ngIf="password.errors.minlength">Password should be 4 minimum charactor</div>
+                    <!-- <div>{{getPasswordErrors(password)}}</div> -->
+                </div>
             </div>
             <div class="my-4">
-                <button type="submit" class="btn btn-primary">{{isLogginMode?"Login":"SignUp"}}</button> |
+                <button type="submit" class="btn btn-primary"
+                    [disabled]="!authform.valid">{{isLogginMode?"Login":"SignUp"}}</button> |
                 <button type="button" class="btn btn-primary" (click)="onSwitchMode()">Switch to
                     {{isLogginMode?"SignUp":"Login"}}</button>
             </div>
