@@ -4,4 +4,5 @@ export class AuthResponseVM {
   refreshToken: string
   expiresIn: string
   localId: string
+  registered: boolean
 }
