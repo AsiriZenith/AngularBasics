@@ -39,21 +39,12 @@ export class AuthComponent implements OnInit {
             console.log(res)
             this.isLoading = false
           },
-          (error) => {
-            console.log(error)
+          (errorMessage) => {
+            console.log(errorMessage)
+            this.error = errorMessage
             this.isLoading = false
-            this.error = 'An error occured!!'
           },
         )
     }
   }
-
-  //   getPasswordErrors(password: FormControl) {
-  //     if (password.errors.required) {
-  //       return 'password is required'
-  //     }
-  //     if (password.errors.minlength) {
-  //       return 'password is of 4 characters'
-  //     }
-  //   }
 }
