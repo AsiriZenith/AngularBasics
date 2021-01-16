@@ -22,11 +22,11 @@ export class AuthService {
           if (!errorRes.error || !errorRes.error.error) {
             return throwError(errorMessage)
           }
-          switch (errorRes.error.error.message) {
-            case 'EMAIL_EXISTS':
-              errorMessage = 'Email Already Exists'
-          }
-          return throwError(errorMessage)
+          // switch (errorRes.error.error.message) {
+          //   case 'EMAIL_EXISTS':
+          //     errorMessage = 'Email Already Exists'
+          // }
+          // return throwError(errorMessage)
         }),
       )
   }

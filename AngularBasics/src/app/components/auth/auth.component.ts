@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { NgForm } from '@angular/forms'
+import { Router } from '@angular/router'
 import { Observable } from 'rxjs'
 import { AuthService } from '../../services/auth.service'
 import { AuthResponseVM } from './auth.responsedata'
@@ -13,7 +14,7 @@ export class AuthComponent implements OnInit {
   isLoading: boolean = true
   error: string = null
 
-  constructor(private authservice: AuthService) {}
+  constructor(private authservice: AuthService, private routes: Router) {}
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -47,6 +48,7 @@ export class AuthComponent implements OnInit {
       (res) => {
         console.log(res)
         this.isLoading = false
+        this.routes.navigate(['/'])
       },
       (errorMessage) => {
         console.log(errorMessage)

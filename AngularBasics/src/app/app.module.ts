@@ -32,7 +32,8 @@ import { PostService } from './services/posts.service'
 import { AuthInterceptorService } from './services/auth.Interceptor.service'
 import { LogginInterceptorService } from './services/loggin.Interceptor.service'
 import { AuthComponent } from './components/auth/auth.component'
-import { LoadingSpinnerComponent } from './shared/loading-spinner/loading.spinner.component'
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading.spinner.component';
+import { NavigationComponent } from './components/navigation/navigation.component'
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading.spinne
     PostsComponent,
     AuthComponent,
     LoadingSpinnerComponent,
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,
