@@ -32,6 +32,7 @@ export class AuthComponent implements OnInit {
     }
     let authObs: Observable<AuthResponseVM>
     this.isLoading = true
+    this.error = null
     if (this.isLogginMode) {
       //Perform loggin call
       authObs = this.authservice.login(
