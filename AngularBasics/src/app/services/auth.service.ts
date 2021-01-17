@@ -1,8 +1,9 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { throwError } from 'rxjs'
-import { catchError } from 'rxjs/Operators'
+import { catchError, tap } from 'rxjs/Operators'
 import { AuthResponseVM } from '../components/auth/auth.responsedata'
+import { User } from '../components/auth/user.model'
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -16,7 +17,7 @@ export class AuthService {
         `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBYa9Cu7wvSPPxvArRbjYN66Hz4bBs6_kM`,
         { email, password, returnSecureToken: true },
       )
-      .pipe(catchError(this.getErrorHandler))
+      .pipe(catchError(this.getErrorHandler), tap(this.handleUser))
   }
 
   login(email: string, password: string) {
@@ -25,7 +26,12 @@ export class AuthService {
         `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBYa9Cu7wvSPPxvArRbjYN66Hz4bBs6_kM`,
         { email, password, returnSecureToken: true },
       )
-      .pipe(catchError(this.getErrorHandler))
+      .pipe(catchError(this.getErrorHandler), tap(this.handleUser))
+  }
+
+  private handleUser(res: AuthResponseVM) {
+    const expireDate = new Date(new Date().getTime() + +res.expiresIn * 1000)
+    const user = new User(res.email, res.localId, res.idToken, expireDate)
   }
 
   getErrorHandler(errorRes: HttpErrorResponse) {
