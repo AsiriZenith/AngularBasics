@@ -32,8 +32,9 @@ import { PostService } from './services/posts.service'
 import { AuthInterceptorService } from './services/auth.Interceptor.service'
 import { LogginInterceptorService } from './services/loggin.Interceptor.service'
 import { AuthComponent } from './components/auth/auth.component'
-import { LoadingSpinnerComponent } from './shared/loading-spinner/loading.spinner.component';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading.spinner.component'
 import { NavigationComponent } from './components/navigation/navigation.component'
+import { AuthTokenInterceptorService } from './services/auth.token.intercepter.service'
 
 @NgModule({
   declarations: [
@@ -76,6 +77,11 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LogginInterceptorService,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthTokenInterceptorService,
       multi: true,
     },
     AuthService,
